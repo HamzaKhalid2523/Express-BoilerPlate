@@ -11,34 +11,11 @@ const catchAsync = require("./../utils/catchAsync");
 const AppError = require("./../utils/appError");
 
 class UserController {
-  getAllRecords = factoryController.getAll(
-    UsersModel,
-    { category: "Users", action: "View All Users", action_type: "View" },
-  );
-
-  getOneRecord = factoryController.getOne(
-    UsersModel,
-    { category: "Users", action: "View User", action_type: "View" },
-  );
-
-  createNewRecord = factoryController.createOne(UsersModel, {
-    category: "Users",
-    action: "Create New User",
-    action_type: "Create",
-    },
-  );
-
-  updateRecord = factoryController.updateOne(
-    UsersModel,
-    { category: "Users", action: "Update User", action_type: "Update" },
-  );
-
-  deleteRecord = factoryController.deleteOne(UsersModel, {
-    category: "Users",
-    action: "Delete User",
-    action_type: "Delete",
-    },
-  );
+  getAllRecords = factoryController.getAll(UsersModel);
+  getOneRecord = factoryController.getOne(UsersModel);
+  createNewRecord = factoryController.createOne(UsersModel);
+  updateRecord = factoryController.updateOne(UsersModel);
+  deleteRecord = factoryController.deleteOne(UsersModel);
   
   loginUser = catchAsync(async (req: Request | any, res: Response, next: NextFunction) => {
     const body = req.body;
